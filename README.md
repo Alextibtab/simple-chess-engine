@@ -93,6 +93,8 @@ Contributions to My Chess Engine are welcome! If you have any bug reports, featu
 
 ## Credits
 
+- [chess-programming-wiki](https://www.chessprogramming.org/Main_Page) - Wiki for chess programming.
+- [chess-pixel-art](https://dani-maccari.itch.io/pixel-chess) - Pixel art created by Dani Maccari.
 - [python-chess](https://github.com/niklasf/python-chess) - Library for chess functionality.
 - [Stockfish](https://stockfishchess.org/) - Open-source chess engine.
 - [Pygame](https://www.pygame.org/) - Library for game development.
