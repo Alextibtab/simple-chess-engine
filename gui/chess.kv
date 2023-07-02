@@ -1,0 +1,67 @@
+#:kivy 2.2.1
+
+<MenuScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            id: title
+            text: 'Chess'
+            font_size: 50
+            size: self.texture_size
+            size_hint: 1, 0.8
+            padding: 0, 60, 0, 0
+            pos_hint: {'center_x': 0.5}
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 5
+            padding: 50
+            Button:
+                text: 'Play Chess'
+                size_hint: 0.4, 1
+                pos_hint: {'center_x': 0.5}
+                on_press: 
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'player_vs_player'
+            Button:
+                text: 'Play Chess vs AI'
+                size_hint: 0.4, 1
+                pos_hint: {'center_x': 0.5}
+                on_press: 
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'player_vs_ai'
+            Button:
+                text: 'AI vs AI'
+                size_hint: 0.4, 1
+                pos_hint: {'center_x': 0.5}
+                on_press: 
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'ai_vs_ai'
+            Button:
+                text: 'Quit'
+                size_hint: 0.4, 1
+                pos_hint: {'center_x': 0.5}
+                on_press: app.stop()
+
+<PlayerVsPlayerScreen>:
+    BoxLayout:
+        Button:
+            text: 'Back to menu'
+            on_press: 
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+
+<PlayerVsComputerScreen>:
+    BoxLayout:
+        Button:
+            text: 'Back to menu'
+            on_press: 
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+
+<ComputerVsComputerScreen>:
+    BoxLayout:
+        Button:
+            text: 'Back to menu'
+            on_press: 
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
