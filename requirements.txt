@@ -1,0 +1,6 @@
+python-chess
+Stockfish
+Pygame
+numpy
+pytest
+kivy
