@@ -1,4 +1,5 @@
 #:kivy 2.2.1
+#:import Chess chess.chess_game.Chess
 
 <MenuScreen>:
     BoxLayout:
@@ -37,6 +38,11 @@
                     root.manager.transition.direction = 'left'
                     root.manager.current = 'ai_vs_ai'
             Button:
+                text: 'Settings'
+                size_hint: 0.4, 1
+                pos_hint: {'center_x': 0.5}
+                on_press: app.open_settings()
+            Button:
                 text: 'Quit'
                 size_hint: 0.4, 1
                 pos_hint: {'center_x': 0.5}
@@ -44,24 +50,54 @@
 
 <PlayerVsPlayerScreen>:
     BoxLayout:
+        orientation: 'vertical'
+        padding: 0, 50
+        spacing: 20
+        Chess: 
+            id: chess_board_pvp
+            size_hint: 1, 0.8
+            pos_hint: {'center_x': 0.5}
         Button:
             text: 'Back to menu'
+            size_hint: 0.4, 0.2
+            height: 50
+            pos_hint: {'center_x': 0.5}
             on_press: 
                 root.manager.transition.direction = 'right'
                 root.manager.current = 'menu'
 
 <PlayerVsComputerScreen>:
     BoxLayout:
+        orientation: 'vertical'
+        padding: 0, 50
+        spacing: 20
+        Chess: 
+            id: chess_board_pvai
+            size_hint: 1, 0.8
+            pos_hint: {'center_x': 0.5}
         Button:
             text: 'Back to menu'
+            size_hint: 0.4, 0.2
+            height: 50
+            pos_hint: {'center_x': 0.5}
             on_press: 
                 root.manager.transition.direction = 'right'
                 root.manager.current = 'menu'
 
 <ComputerVsComputerScreen>:
     BoxLayout:
+        orientation: 'vertical'
+        padding: 0, 50
+        spacing: 20
+        Chess: 
+            id: chess_board_aivai
+            size_hint: 1, 0.8
+            pos_hint: {'center_x': 0.5}
         Button:
             text: 'Back to menu'
+            size_hint: 0.4, 0.2
+            height: 50
+            pos_hint: {'center_x': 0.5}
             on_press: 
                 root.manager.transition.direction = 'right'
                 root.manager.current = 'menu'

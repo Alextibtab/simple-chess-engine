@@ -1,0 +1,13 @@
+[
+    {
+        "type": "options",
+        "title": "Board Type",
+        "desc": "Set the board type to perspective or top down.",
+        "section": "chess",
+        "key": "board_type",
+        "options": [
+            "perspective",
+            "top down"
+        ]
+    }
+]
