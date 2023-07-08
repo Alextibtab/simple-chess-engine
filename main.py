@@ -32,7 +32,7 @@ class ChessApp(App):
 
     def build(self):
         self.settings_cls = SettingsWithTabbedPanel
-        self.icon = "assets/W_King.png"
+        self.icon = "simplechess/assets/W_King.png"
 
         self.sm = ScreenManager()
         self.sm.add_widget(MenuScreen(name="menu"))
