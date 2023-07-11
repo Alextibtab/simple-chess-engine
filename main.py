@@ -1,8 +1,39 @@
 import cProfile
 
 from kivy.app import App
+from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.settings import SettingsWithTabbedPanel
+from kivy.uix.image import Image
+from kivy.properties import StringProperty, BooleanProperty, BoundedNumericProperty
+
+
+class Chess(RelativeLayout):
+    pass
+
+
+class ChessBoard(RelativeLayout):
+    pass
+
+
+class ChessBoardImage(Image):
+    board_theme = StringProperty("board_plain_03")
+
+    def on_texture(self, *args):
+        self.texture.mag_filter = "nearest"
+        self.texture.min_filter = "nearest"
+
+
+class ChessPieceLayout(RelativeLayout):
+    pass
+
+
+class ChessPiece(Image):
+    selected = BooleanProperty(False)
+    colour = StringProperty("white")
+    piece = StringProperty("King")
+    rank = BoundedNumericProperty(0, min=0, max=7)
+    file = BoundedNumericProperty(0, min=0, max=7)
 
 
 class MenuScreen(Screen):

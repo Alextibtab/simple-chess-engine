@@ -16,7 +16,8 @@ PIECES = {
 }
 
 
-def fill_array_from_fen(pieces, fen):
+def create_array_from_fen(fen):
+    pieces = [Piece.NONE] * 64
     fen = fen.split("/")
     for i in range(len(fen)):
         row = fen[i]
@@ -29,3 +30,4 @@ def fill_array_from_fen(pieces, fen):
             else:
                 pieces[i * 8 + column] = PIECES[row[j]]
                 column += 1
+    return pieces

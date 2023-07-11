@@ -1,103 +1,133 @@
 #:kivy 2.2.1
-#:import Chess simplechess.chess.chess_game.Chess
+
+<ChessPiece>:
+    colour_name: "W_" if self.colour == "white" else "B_"
+    source: "simplechess/assets/"+self.colour_name+self.piece+".png"
+    size_hint: 0.125, 0.125
+    width: self.height
+    pos_hint: {"x": self.file * 0.125, "y": self.rank * 0.125}
 
 <MenuScreen>:
     BoxLayout:
-        orientation: 'vertical'
+        orientation: "vertical"
         Label:
             id: title
-            text: 'Chess'
+            text: "Chess"
             font_size: 50
             size: self.texture_size
             size_hint: 1, 0.8
             padding: 0, 60, 0, 0
-            pos_hint: {'center_x': 0.5}
+            pos_hint: {"center_x": 0.5}
         BoxLayout:
-            orientation: 'vertical'
+            orientation: "vertical"
             spacing: 5
             padding: 50
             Button:
-                text: 'Play Chess'
+                text: "Play Chess"
                 size_hint: 0.4, 1
-                pos_hint: {'center_x': 0.5}
+                pos_hint: {"center_x": 0.5}
                 on_press: 
-                    root.manager.transition.direction = 'left'
-                    root.manager.current = 'player_vs_player'
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "player_vs_player"
             Button:
-                text: 'Play Chess vs AI'
+                text: "Play Chess vs AI"
                 size_hint: 0.4, 1
-                pos_hint: {'center_x': 0.5}
+                pos_hint: {"center_x": 0.5}
                 on_press: 
-                    root.manager.transition.direction = 'left'
-                    root.manager.current = 'player_vs_ai'
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "player_vs_ai"
             Button:
-                text: 'AI vs AI'
+                text: "AI vs AI"
                 size_hint: 0.4, 1
-                pos_hint: {'center_x': 0.5}
+                pos_hint: {"center_x": 0.5}
                 on_press: 
-                    root.manager.transition.direction = 'left'
-                    root.manager.current = 'ai_vs_ai'
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "ai_vs_ai"
             Button:
-                text: 'Settings'
+                text: "Settings"
                 size_hint: 0.4, 1
-                pos_hint: {'center_x': 0.5}
+                pos_hint: {"center_x": 0.5}
                 on_press: app.open_settings()
             Button:
-                text: 'Quit'
+                text: "Quit"
                 size_hint: 0.4, 1
-                pos_hint: {'center_x': 0.5}
+                pos_hint: {"center_x": 0.5}
                 on_press: app.stop()
 
 <PlayerVsPlayerScreen>:
     BoxLayout:
-        orientation: 'vertical'
+        orientation: "vertical"
         padding: 0, 50
         spacing: 20
         Chess: 
             id: chess_board_pvp
-            size_hint: 1, 0.8
-            pos_hint: {'center_x': 0.5}
+            ChessBoard:
+                size_hint: 1, 1
+                ChessBoardImage:
+                    source: "simplechess/assets/"+self.board_theme+".png"
+                    allow_stretch: True
+                    size_hint: None, 1
+                    width: self.height
+                    pos_hint: {"center_x": 0.5}
+                ChessPieceLayout:
+                    size_hint: None, 0.9
+                    width: self.height
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    canvas:
+                        Color:
+                            rgba: 1, 0, 0, 0.4
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    ChessPiece:
+                        piece: "Rook"
+                        colour: "white"
+                        file: 0
+                        rank: 0
+                    ChessPiece:
+                        piece: "Rook"
+                        colour: "black"
+                        file: 7
+                        rank: 7
+
+
         Button:
-            text: 'Back to menu'
+            text: "Back to menu"
             size_hint: 0.4, 0.2
             height: 50
-            pos_hint: {'center_x': 0.5}
+            pos_hint: {"center_x": 0.5}
             on_press: 
-                root.manager.transition.direction = 'right'
-                root.manager.current = 'menu'
+                root.manager.transition.direction = "right"
+                root.manager.current = "menu"
 
 <PlayerVsComputerScreen>:
     BoxLayout:
-        orientation: 'vertical'
+        orientation: "vertical"
         padding: 0, 50
         spacing: 20
         Chess: 
             id: chess_board_pvai
-            size_hint: 1, 0.8
-            pos_hint: {'center_x': 0.5}
         Button:
-            text: 'Back to menu'
+            text: "Back to menu"
             size_hint: 0.4, 0.2
             height: 50
-            pos_hint: {'center_x': 0.5}
+            pos_hint: {"center_x": 0.5}
             on_press: 
-                root.manager.transition.direction = 'right'
-                root.manager.current = 'menu'
+                root.manager.transition.direction = "right"
+                root.manager.current = "menu"
 
 <ComputerVsComputerScreen>:
     BoxLayout:
-        orientation: 'vertical'
+        orientation: "vertical"
         padding: 0, 50
         spacing: 20
         Chess: 
             id: chess_board_aivai
-            size_hint: 1, 0.8
-            pos_hint: {'center_x': 0.5}
         Button:
-            text: 'Back to menu'
+            text: "Back to menu"
             size_hint: 0.4, 0.2
             height: 50
-            pos_hint: {'center_x': 0.5}
+            pos_hint: {"center_x": 0.5}
             on_press: 
-                root.manager.transition.direction = 'right'
-                root.manager.current = 'menu'
+                root.manager.transition.direction = "right"
+                root.manager.current = "menu"
