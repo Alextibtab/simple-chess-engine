@@ -44,13 +44,13 @@ Welcome to My Chess Engine! This is a project where I develop a chess engine in 
 1. Clone the repository:
 
     ```shell
-    git clone https://github.com/your-username/my-chess-engine.git
+    git clone https://github.com/Alextibtab/simple-chess-engine.git
     ```
 
 2. Navigate to the project directory:
 
     ```shell
-    cd my-chess-engine
+    cd simple-chess-engine
     ```
 
 3. Create a new virtual environment:
