@@ -15,6 +15,8 @@ PIECES = {
     "p": Piece.BLACK | Piece.PAWN,
 }
 
+STARTING_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
+
 
 def create_array_from_fen(fen):
     pieces = [Piece.NONE] * 64
